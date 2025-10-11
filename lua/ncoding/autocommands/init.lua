@@ -7,3 +7,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 });
 
 require("ncoding.autocommands.string_interpolation_autocmd");
+require("ncoding.autocommands.quickfix_easy_close");
