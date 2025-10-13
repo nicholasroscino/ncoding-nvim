@@ -1,6 +1,10 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.o.expandtab = true
+vim.o.shiftwidth = 2
+vim.o.tabstop = 2
+
 vim.g.have_nerd_font = true
 
 vim.o.number = true
@@ -9,6 +13,9 @@ vim.o.relativenumber = true
 vim.o.mouse = 'a'
 
 vim.o.showmode = false
+
+vim.opt.spell = true
+vim.opt.spelllang = 'en'
 
 -- TODO: For SSH-tmux copy the link: https://github.com/nicholasroscino/neovim-config/blob/main/lua/ncoding/options.lua#L31
 -- make the clipboard strategy as a choice?
@@ -40,8 +47,7 @@ vim.o.cursorline = true
 vim.o.scrolloff = 15
 vim.o.confirm = true
 
-
--- NOTE: The following is intended to be used with SSH-TMUX Setup 
+-- NOTE: The following is intended to be used with SSH-TMUX Setup
 -- local copy_cmd = {
 --   "bash",
 --   "-c",
@@ -58,9 +64,9 @@ vim.o.confirm = true
 --     printf "%s" "$OSC52_SEQUENCE" > "$TTY_DEVICE";
 --   ]],
 -- }
--- 
+--
 -- local paste_cmd = { "tmux", "save-buffer", "-" }
--- 
+--
 -- vim.opt.clipboard = "unnamedplus"
 -- vim.g.clipboard = {
 --   name = "tmux_clipboard_osc52_bridge",
@@ -84,18 +90,15 @@ vim.o.confirm = true
 local virt_lines_ns = vim.api.nvim_create_namespace 'on_diagnostic_jump'
 
 local function on_jump(diagnostic, bufnr)
-    if not diagnostic then return end
+  if not diagnostic then
+    return
+  end
 
-    vim.diagnostic.show(
-        virt_lines_ns,
-        bufnr,
-        { diagnostic },
-        { virtual_lines = { current_line = true }, virtual_text = false }
-    )
+  vim.diagnostic.show(virt_lines_ns, bufnr, { diagnostic }, { virtual_lines = { current_line = true }, virtual_text = false })
 end
 
-vim.diagnostic.config({
-    jump = {
-        on_jump = on_jump,
-    },
-})
+vim.diagnostic.config {
+  jump = {
+    on_jump = on_jump,
+  },
+}

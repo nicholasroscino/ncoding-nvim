@@ -242,6 +242,41 @@ return {
             require('lspconfig')[server_name].setup(server)
           end,
         },
+        config = function()
+          require('lspconfig').harper_ls.setup {
+            settings = {
+              ['harper-ls'] = {
+                userDictPath = '',
+                workspaceDictPath = '',
+                fileDictPath = '',
+                linters = {
+                  SpellCheck = true,
+                  SpelledNumbers = false,
+                  AnA = true,
+                  SentenceCapitalization = true,
+                  UnclosedQuotes = true,
+                  WrongQuotes = false,
+                  LongSentences = true,
+                  RepeatedWords = true,
+                  Spaces = true,
+                  Matcher = true,
+                  CorrectNumberSuffix = true,
+                },
+                codeActions = {
+                  ForceStable = false,
+                },
+                markdown = {
+                  IgnoreLinkTitle = false,
+                },
+                diagnosticSeverity = 'warning',
+                isolateEnglish = false,
+                dialect = 'American',
+                maxFileLength = 120000,
+                ignoredLintsPath = {},
+              },
+            },
+          }
+        end,
       }
     end,
   },

@@ -32,7 +32,6 @@ require('lazy').setup({
   require 'ncoding.plugins-configs.core',
   require 'ncoding.plugins-configs.ui',
   require 'ncoding.plugins-configs.utilities',
-  require 'ncoding.plugins-configs.utilities',
   require 'ncoding.plugins-configs.ui.theme.project-list',
 
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`

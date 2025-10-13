@@ -52,3 +52,7 @@ vim.keymap.set('n', '<C-l>', 'zA')
 vim.keymap.set('n', '<C-k>', 'zk')
 vim.keymap.set('n', '<C-j>', 'zj')
 vim.keymap.set('n', '<leader>fw', 'yiw/<C-r>"<CR>')
+
+-- vim.keymap.set('n', '<leader>sa', function()
+--   require('ncoding.plugins-configs.ui.telescope_customs.telescope_custom').keymaps_descriptions()
+-- end, { desc = 'Find keymap by description' })

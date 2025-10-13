@@ -12,7 +12,11 @@ return {
     config = function()
       local oil = require 'oil'
 
-      oil.setup()
+      oil.setup {
+        view_options = {
+          show_hidden = true,
+        },
+      }
 
       vim.keymap.set('n', '<leader>pv', function()
         oil.open(vim.fn.expand '%:p:h') -- open oil at current working directory
