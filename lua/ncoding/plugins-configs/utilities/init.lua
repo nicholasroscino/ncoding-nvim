@@ -8,4 +8,6 @@ return {
 	require("ncoding.plugins-configs.utilities.command-search"),
 	require("ncoding.plugins-configs.utilities.test-runner"),
 	require("ncoding.plugins-configs.utilities.scratch"),
+	require("ncoding.plugins-configs.utilities.gemini-autocomplete"),
+	require("ncoding.plugins-configs.utilities.harpoon"),
 }

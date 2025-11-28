@@ -16,6 +16,8 @@ return {
 					{ name = "Diagnostics", desc = "Open diagnostics", cmd = "Trouble diagnostics" },
 					{ name = "VSplitTerm", desc = "Open terminal vertical split", cmd = "vsplit|term" },
 					{ name = "HSplitTerm", desc = "Open terminal horizontal split", cmd = "split|term" },
+					{ name = "NewTabTerm", desc = "Open terminal in a new tab", cmd = "tabnew|term" },
+					{ name = "NewTab", desc = "Creates a new tab", cmd = "tabnew" },
 				},
 			})
 
