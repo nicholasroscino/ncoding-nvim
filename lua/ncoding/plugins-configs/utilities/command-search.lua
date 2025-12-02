@@ -3,7 +3,7 @@ return {
 		dir = "~/.config/nvim/lua/ncoding/src/command-search",
 		name = "command-search",
 		depenencies = {
-			"MunifTanjim/nui.nvim",
+			"muniftanjim/nui.nvim",
 		},
 		config = function()
 			require("ncoding.src.command-search").setup({
@@ -18,6 +18,8 @@ return {
 					{ name = "HSplitTerm", desc = "Open terminal horizontal split", cmd = "split|term" },
 					{ name = "NewTabTerm", desc = "Open terminal in a new tab", cmd = "tabnew|term" },
 					{ name = "NewTab", desc = "Creates a new tab", cmd = "tabnew" },
+					{ name = "NewScratch", desc = "Creates a new scratch file", cmd = "ScratchNew" },
+					{ name = "ScratchFind", desc = "List all scratch files", cmd = "ScratchFind" },
 				},
 			})
 
