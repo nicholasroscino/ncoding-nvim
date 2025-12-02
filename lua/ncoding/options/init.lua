@@ -19,9 +19,9 @@ vim.opt.spelllang = "en"
 
 -- TODO: For SSH-tmux copy the link: https://github.com/nicholasroscino/neovim-config/blob/main/lua/ncoding/options.lua#L31
 -- make the clipboard strategy as a choice?
--- vim.schedule(function()
---   vim.o.clipboard = 'unnamedplus'
--- end)
+vim.schedule(function()
+	vim.o.clipboard = "unnamedplus"
+end)
 
 -- NOTE: The following is intended to be used with SSH-TMUX Setup
 local copy_cmd = {
@@ -47,20 +47,21 @@ local copy_cmd = {
   ]],
 }
 
-local paste_cmd = { "tmux", "save-buffer", "-" }
-
-vim.opt.clipboard = "unnamedplus"
-vim.g.clipboard = {
-	name = "tmux_clipboard_osc52_bridge",
-	copy = {
-		["+"] = copy_cmd,
-		["*"] = copy_cmd,
-	},
-	paste = {
-		["+"] = paste_cmd,
-		--	["*"] = paste_cmd,
-	},
-}
+-- local paste_cmd = { "tmux", "save-buffer", "-" }
+--
+-- vim.opt.clipboard = "unnamedplus"
+-- vim.g.clipboard = {
+-- 	name = "tmux_clipboard_osc52_bridge",
+-- 	copy = {
+-- 		["+"] = copy_cmd,
+-- 		["*"] = copy_cmd,
+-- 	},
+-- 	paste = {
+-- 		["+"] = paste_cmd,
+-- 		--	["*"] = paste_cmd,
+-- 	},
+-- }
+--
 
 vim.o.breakindent = true
 vim.o.undofile = true

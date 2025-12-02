@@ -20,6 +20,12 @@ return {
 					{ name = "NewTab", desc = "Creates a new tab", cmd = "tabnew" },
 					{ name = "NewScratch", desc = "Creates a new scratch file", cmd = "ScratchNew" },
 					{ name = "ScratchFind", desc = "List all scratch files", cmd = "ScratchFind" },
+					{
+						name = "file history",
+						desc = "Get current file history",
+						cmd = "Git log --oneline --follow -- %",
+					},
+					{ name = "diff with selected", desc = "diff with selected commmit", cmd = "Gvdiffsplit <C-R> *" },
 				},
 			})
 

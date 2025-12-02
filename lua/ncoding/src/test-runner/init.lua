@@ -8,7 +8,7 @@ local function get_current_file()
 	return file
 end
 
-function run_cc_test(file)
+function run_cc_test(file, mode)
 	if not string.find(file, ".test") then
 		print("Not a test file")
 		return
@@ -46,7 +46,7 @@ function run_cc_test(file)
 	vim.cmd(commandString)
 end
 
-function run_js_test(file)
+function run_js_test(file, mode)
 	if not string.find(file, ".test") then
 		print("Not a test file")
 		return
@@ -92,9 +92,9 @@ function M.run_test(mode)
 	end
 
 	if string.find(file, ".js") or string.find(file, ".ts") then
-		run_js_test(file)
+		run_js_test(file, mode)
 	elseif string.find(file, ".cpp") or string.find(file, ".cc") then
-		run_cc_test(file)
+		run_cc_test(file, mode)
 	end
 end
 
