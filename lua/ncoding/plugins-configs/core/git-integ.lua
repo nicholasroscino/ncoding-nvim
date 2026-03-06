@@ -3,6 +3,11 @@
 -- config. This will add also the recommended keymaps.
 
 return {
-  'tpope/vim-fugitive',
-  'airblade/vim-gitgutter',
+	"tpope/vim-fugitive",
+	{
+		"airblade/vim-gitgutter",
+		config = function()
+			vim.keymap.set("n", "<leader>gp", ":GitGutterPreviewHunk<CR>")
+		end,
+	},
 }

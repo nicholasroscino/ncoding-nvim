@@ -26,6 +26,12 @@ return {
 						cmd = "Git log --oneline --follow -- %",
 					},
 					{ name = "diff with selected", desc = "diff with selected commmit", cmd = "Gvdiffsplit <C-R> *" },
+					{ name = "GitFastPreview", desc = "Git fast line history", cmd = "GitGutterPreviewHunk" },
+					{
+						name = "CopyCurrentPath",
+						desc = "Copy current buffer path to clipboard",
+						cmd = 'let @+ = expand("%:p")',
+					},
 				},
 			})
 

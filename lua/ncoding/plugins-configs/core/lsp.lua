@@ -129,6 +129,22 @@ return {
 						},
 					},
 				},
+				clangd = {
+					cmd = {
+						"clangd",
+						"--background-index", -- Index project in background (vital for speed)
+						"--clang-tidy", -- Enable linting
+						"--header-insertion=iwyu", -- Auto-import headers (Include-What-You-Use)
+						"--completion-style=detailed", -- vital for full signature info
+						"--function-arg-placeholders", -- Fill in arguments when completing
+						"--fallback-style=llvm",
+					},
+					init_options = {
+						usePlaceholders = true,
+						completeUnimported = true,
+						clangdFileStatus = true,
+					},
+				},
 			}
 
 			local ensure_installed = vim.tbl_keys(servers or {})
