@@ -14,6 +14,13 @@ return {
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
         additional_vim_regex_highlighting = { 'ruby' },
+        -- safety check to avoid crashes in Neovim 0.12 with Noice
+        disable = function(lang, bufnr)
+          -- Disable TS highlighting for special buffers that change rapidly or are transient
+          local bt = vim.bo[bufnr].buftype
+          local ft = vim.bo[bufnr].filetype
+          return bt == "nofile" or bt == "prompt" or ft == "noice" or ft == "notify"
+        end,
       },
       indent = { enable = true, disable = { 'ruby' } },
     },
