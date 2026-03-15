@@ -24,31 +24,31 @@ vim.schedule(function()
 end)
 
 -- NOTE: The following is intended to be used with SSH-TMUX Setup
-local copy_cmd = {
-	"bash",
-	"-c",
-	[[
-    # 1. Capture the entire input piped from Neovim into a variable.
-    CONTENT_WITH_GUARD=$(cat; printf "X");
-    CONTENT="${CONTENT_WITH_GUARD%X}";
-
-    # 2. Sync the tmux buffer: Send the captured content to tmux.
-    #    This makes Neovim's 'p' command work correctly.
-    printf "%s" "$CONTENT" | tmux load-buffer -;
-
-    # Get the correct TTY device for the client from tmux itself
-    TTY_DEVICE=$(tmux display-message -p '#{client_tty}');
-    # Base64 encode the content
-    B64_PAYLOAD=$(echo -n "$CONTENT" | base64 | tr -d '\n');
-    # Construct the full wrapped sequence
-    OSC52_SEQUENCE=$(printf '\033Ptmux;\033\033]52;c;%s\x07\033\\' "$B64_PAYLOAD");
-    # Write the sequence DIRECTLY to the correct TTY device
-    printf "%s" "$OSC52_SEQUENCE" > "$TTY_DEVICE";
-  ]],
-}
+-- local copy_cmd = {
+-- 	"bash",
+-- 	"-c",
+-- 	[[
+--     # 1. Capture the entire input piped from Neovim into a variable.
+--     CONTENT_WITH_GUARD=$(cat; printf "X");
+--     CONTENT="${CONTENT_WITH_GUARD%X}";
+--
+--     # 2. Sync the tmux buffer: Send the captured content to tmux.
+--     #    This makes Neovim's 'p' command work correctly.
+--     printf "%s" "$CONTENT" | tmux load-buffer -;
+--
+--     # Get the correct TTY device for the client from tmux itself
+--     TTY_DEVICE=$(tmux display-message -p '#{client_tty}');
+--     # Base64 encode the content
+--     B64_PAYLOAD=$(echo -n "$CONTENT" | base64 | tr -d '\n');
+--     # Construct the full wrapped sequence
+--     OSC52_SEQUENCE=$(printf '\033Ptmux;\033\033]52;c;%s\x07\033\\' "$B64_PAYLOAD");
+--     # Write the sequence DIRECTLY to the correct TTY device
+--     printf "%s" "$OSC52_SEQUENCE" > "$TTY_DEVICE";
+--   ]],
+-- }
 
 -- local paste_cmd = { "tmux", "save-buffer", "-" }
---
+-- --
 -- vim.opt.clipboard = "unnamedplus"
 -- vim.g.clipboard = {
 -- 	name = "tmux_clipboard_osc52_bridge",
@@ -62,7 +62,6 @@ local copy_cmd = {
 -- 	},
 -- }
 --
-
 vim.o.breakindent = true
 vim.o.undofile = true
 
